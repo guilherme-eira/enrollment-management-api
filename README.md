@@ -80,7 +80,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina:
 ### 1. Clonar o Repositório
 
 ```bash
-git clone [https://github.com/guilherme-eira/enrollment-management-api.git](https://github.com/guilherme-eira/enrollment-management-api.git)
+git clone https://github.com/guilherme-eira/enrollment-management-api.git
 cd enrollment-management-api
 ```
 
