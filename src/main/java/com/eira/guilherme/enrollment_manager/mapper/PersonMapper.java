@@ -12,7 +12,7 @@ import java.util.Objects;
 public class PersonMapper {
 
     public Person toEntity(PersonPostRequestDTO dto) {
-        return new Person(null, dto.name(), dto.email(), dto.cpf(), Objects.requireNonNullElse(dto.active(), true), dto.role());
+        return new Person(null, dto.name(), dto.email(), dto.document(), Objects.requireNonNullElse(dto.active(), true), dto.role());
     };
 
     public Person toEntity(PersonPutRequestDTO dto) {

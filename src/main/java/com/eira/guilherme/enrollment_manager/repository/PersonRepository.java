@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
-    Boolean existsByCpf(String cpf);
+    Boolean existsByDocument(String document);
     Boolean existsByEmail(String email);
     List<Person> findByActiveTrue();
     Optional<Person> findByIdAndActiveTrue(Long id);

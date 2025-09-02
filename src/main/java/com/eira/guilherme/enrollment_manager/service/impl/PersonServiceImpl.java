@@ -29,7 +29,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person createPerson(Person person) {
-        if (personRepository.existsByCpf(person.getCpf())) {
+        if (personRepository.existsByDocument(person.getDocument())) {
             throw new BusinessException("Este CPF já está cadastrado");
         }
         if (personRepository.existsByEmail(person.getEmail())) {

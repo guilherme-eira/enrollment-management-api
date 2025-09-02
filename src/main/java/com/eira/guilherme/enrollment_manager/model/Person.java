@@ -19,7 +19,7 @@ public class Person {
     private Long id;
     private String name;
     private String email;
-    private String cpf;
+    private String document;
     private Boolean active;
     @Enumerated(value = EnumType.STRING)
     private Role role;

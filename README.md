@@ -19,7 +19,7 @@ erDiagram
         int id PK
         varchar name
         varchar email
-        char cpf
+        char document
         boolean active
         char role
     }

@@ -16,7 +16,7 @@ public record PersonPostRequestDTO(
         String email,
         @NotBlank
         @Size(min = 11, max = 11, message = "utilize 11 dígitos para preencher o CPF - Ex: 12345678901")
-        String cpf,
+        String document,
         Boolean active,
         @NotNull
         Role role
