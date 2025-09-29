@@ -111,7 +111,7 @@ public class ControllerAdvice {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ErrorResponseDTO handleInternalServerError(Exception ex, HttpServletRequest req) {
+    public ErrorResponseDTO handleError500(Exception ex, HttpServletRequest req) {
         return new ErrorResponseDTO(
                 "Erro Interno do Servidor",
                 "Ocorreu um erro inesperado no sistema. Tente novamente mais tarde.",
