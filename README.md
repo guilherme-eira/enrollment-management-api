@@ -175,3 +175,20 @@ Ou, se tiver Maven instalado globalmente:
 mvn spring-boot:run
 ```
 A API estará rodando em ```http://localhost:8080```.
+
+## Como Testar a API
+
+Após iniciar a aplicação, a maneira mais fácil de interagir e testar todos os endpoints é através da documentação interativa gerada pelo Swagger UI.
+
+### Swagger UI
+
+A API já vem configurada para gerar uma página com toda a documentação dos endpoints, permitindo executar requisições diretamente pelo navegador.
+
+1.  Com a aplicação rodando, acesse o seguinte endereço:
+    ```
+    http://localhost:8080/swagger-ui.html
+    ```
+2.  Você verá uma página interativa com todos os endpoints disponíveis, agrupados por recurso (`Cursos`, `Matrículas`, etc.).
+3.  Expanda qualquer um dos endpoints para ver detalhes como os parâmetros esperados, o formato do corpo da requisição (`payload`) e os possíveis códigos de resposta.
+4.  Clique no botão **"Try it out"**, preencha os campos necessários e clique em **"Execute"** para fazer uma chamada real à API e ver a resposta na hora.
+

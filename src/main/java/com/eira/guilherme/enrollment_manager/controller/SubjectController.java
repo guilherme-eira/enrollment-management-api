@@ -11,6 +11,8 @@ import com.eira.guilherme.enrollment_manager.service.PersonService;
 import com.eira.guilherme.enrollment_manager.service.SubjectService;
 import com.eira.guilherme.enrollment_manager.mapper.EnrollmentMapper;
 import com.eira.guilherme.enrollment_manager.mapper.SubjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/subjects")
+@Tag(name = "Matérias", description = "Operações relacionadas a matérias")
 public class SubjectController {
 
     @Autowired
@@ -39,6 +42,7 @@ public class SubjectController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Cadastra uma nova matéria")
     public SubjectResponseDTO createSubject(@Valid @RequestBody SubjectPostRequestDTO dto){
         var course = courseService.getCourseById(dto.courseId());
         var teacher = personService.getPersonById(dto.teacherId());
@@ -47,18 +51,21 @@ public class SubjectController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Lista todas as matérias cadastradas")
     public List<SubjectResponseDTO> getAllSubjects(){
         return subjectService.getAllSubjects().stream().map(d -> subjectMapper.toDto(d)).toList();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Busca uma matéria por id")
     public SubjectResponseDTO getSubjectById(@PathVariable Long id){
         return subjectMapper.toDto(subjectService.getSubjectById(id));
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Atualiza as informações de uma matéria")
     public SubjectResponseDTO updateSubject(@PathVariable Long id, @Valid @RequestBody SubjectPutRequestDTO dto){
         Course course = null;
         Person teacher = null;
@@ -69,12 +76,14 @@ public class SubjectController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Exclui uma matéria")
     public void deleteSubject(@PathVariable Long id){
         subjectService.deleteSubject(id);
     }
 
     @GetMapping("/{id}/enrollments")
     @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Lista todas as matrículas associadas a uma matéria")
     public List<EnrollmentResponseDTO> getEnrollmentsBySubject(@PathVariable Long id) {
         return subjectService.getEnrollmentsBySubject(id).stream().map(enrollmentMapper::toDto).toList();
     }
